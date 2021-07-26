@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class StudentRecord {
     static Scanner objeto = new Scanner(System.in);
     static int array[], suma = 0;
-    static double average;
+    static float average,sumatorias;
 
     static int quantityRead(int data) {
         array = new int[data];
@@ -16,16 +16,21 @@ public class StudentRecord {
         return data;
     }
 
-    static void resultSum(int data) {
+    static void resultAverage(int data)
+    {
         for (int j = 0; j < data; j++) {
             suma += array[j];
             //System.out.println("Position #"+j+": "+array[j]);
         }
+        sumatorias = (float)suma;
+        average = sumatorias/(float)data;
         System.out.println("Result: " + suma);
+        System.out.println("Average: "+average);
     }
 
     public static void main(String args[]) {
-        Integer dataOne, DNI;
+        Integer  DNI;
+        int dataOne;
         boolean flag;
 
         try {
@@ -41,8 +46,9 @@ public class StudentRecord {
                     quantityRead(dataOne);
 
                     System.out.println("DNI: " + DNI);
-                    resultSum(dataOne);
-                    flag = false;
+                    resultAverage(dataOne);
+
+                    flag = true;
                 } else {
                     flag = true;
                     System.out.println("End of the program!");
