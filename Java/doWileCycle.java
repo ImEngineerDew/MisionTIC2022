@@ -1,4 +1,4 @@
-package com.toadsdewin.mintic;
+package com.toadsdewin.mintic.Java;
 import java.util.Scanner;
 
 public class doWileCycle

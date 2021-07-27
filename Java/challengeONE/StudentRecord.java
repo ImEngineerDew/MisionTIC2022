@@ -2,16 +2,17 @@ package com.toadsdewin.mintic.Java.challengeONE;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class StudentRecord {
+public class StudentRecord
+{
     static Scanner objeto = new Scanner(System.in);
-    static int array[], suma = 0;
-    static float average,sumatorias;
+    static double array[], suma = 0;
+    static float average,sumatorias,dataAmount;
 
-    static int quantityRead(int data) {
-        array = new int[data];
+    static double quantityRead(int data) {
+        array = new double[data];
         for (int i = 0; i < data; i++) {
             System.out.print("Position #" + i + ": ");
-            array[i] = objeto.nextInt();
+            array[i] = objeto.nextDouble();
         }
         return data;
     }
@@ -20,18 +21,19 @@ public class StudentRecord {
     {
         for (int j = 0; j < data; j++) {
             suma += array[j];
-            //System.out.println("Position #"+j+": "+array[j]);
         }
         sumatorias = (float)suma;
-        average = sumatorias/(float)data;
-        System.out.println("Result: " + suma);
+        dataAmount = (float)data;
+
+        average = sumatorias/dataAmount;
+
+        System.out.println("Result: " +sumatorias);
         System.out.println("Average: "+average);
     }
 
     public static void main(String args[]) {
-        Integer  DNI;
-        int dataOne;
-        boolean flag;
+        Integer  DNI,dataOne;
+        boolean flag = true;
 
         try {
             do {
@@ -47,13 +49,12 @@ public class StudentRecord {
 
                     System.out.println("DNI: " + DNI);
                     resultAverage(dataOne);
-
-                    flag = true;
+                    break;
                 } else {
                     flag = true;
                     System.out.println("End of the program!");
                 }
-            } while (!flag);
+            } while (flag);
         } catch (InputMismatchException exception) {
             System.out.println("Try Again!");
         }
