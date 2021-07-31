@@ -44,7 +44,7 @@ public class StudentRecord
                     System.out.print("Please write the amount of data: ");
                     dataOne = objeto.nextInt();
 
-                    System.out.println("Reading the amount of vectors: ");
+                    System.out.println("Please write your records: ");
                     quantityRead(dataOne);
 
                     System.out.println("DNI: " + DNI);
