@@ -13,7 +13,7 @@ public class StudentRecord
         System.out.println("Size of the array: "+amount);
         for (i=0; i<amount; i++)
         {
-            System.out.print("Data of the position"+i+": ");
+            System.out.print("Data of the position # "+i+": ");
             array[i] = object.nextDouble();
         }
         return amount;
