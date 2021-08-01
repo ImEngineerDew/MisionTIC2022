@@ -13,7 +13,7 @@ public class StudentRecord
         System.out.println("Size of the array: "+amount);
         for (i=0; i<amount; i++)
         {
-            System.out.print("Data of the position # "+i+": ");
+            System.out.print("Record # "+i+": ");
             array[i] = object.nextDouble();
         }
         return amount;
@@ -22,19 +22,34 @@ public class StudentRecord
     public static void main(String args[])
     {
         double sumatory = 0;
+        Boolean flag = false;
 
         sumatory = (double)sum;
-        System.out.print("Please write the amount of data: ");
-        Integer amnt = object.nextInt();
 
-        quantityOfData(amnt);
+        System.out.print("Please type your DNI: ");
+        Integer DNI = object.nextInt();
 
-        for (int j=0; j<amnt;j++)
-        {
-            sumatory+=array[j];
-            average = sumatory/amnt;
-        }
-        System.out.println("Sum: "+sumatory);
-        System.out.print("Average: "+average);
-    }
+        do {
+            if(DNI>0)
+            {
+                System.out.print("Please write the amount of data: ");
+                Integer amnt = object.nextInt();
+
+                quantityOfData(amnt);
+                for (int j=0; j<amnt;j++)
+                {
+                    sumatory+=array[j];
+                    average = sumatory/amnt;
+                }
+                System.out.println("Sum: "+sumatory);
+                System.out.print("Average: "+average);
+                break;
+            }
+            else
+            {
+                flag= false;
+                System.out.println("This program has been ended!");
+            }
+        }while(flag);
+   }
 }
