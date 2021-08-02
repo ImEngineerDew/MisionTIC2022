@@ -2,15 +2,18 @@ package com.toadsdewin.mintic.Java.challengeONE;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class StudentRecord {
+public class StudentRecord
+{
     private static Scanner object = new Scanner(System.in);
     static Integer i, sum = 0;
     static Double average, array[];
 
-    static double quantityOfData(Integer amount) {
+    static double quantityOfData(Integer amount)
+    {
         array = new Double[amount];
         System.out.println("Size of the array: " + amount);
-        for (i = 0; i < amount; i++) {
+        for (i = 0; i < amount; i++)
+        {
             System.out.print("Record # " + i + ": ");
             array[i] = object.nextDouble();
         }
@@ -78,7 +81,8 @@ public class StudentRecord {
                             System.out.println("This program has been ended!");
                         }
                     }while(flag);
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException typoError)
+            {
                 System.out.println("Try again!");
                 object.next();
                 flag = true;
