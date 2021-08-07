@@ -70,7 +70,7 @@ public class StudentRecord
                                 }
                             }catch(NullPointerException nullError)
                             {
-                                System.out.print("Please write the amount of data: ");
+                                System.out.print("Try again!");
                                 object.next();
                                 flag = true;
                             }
