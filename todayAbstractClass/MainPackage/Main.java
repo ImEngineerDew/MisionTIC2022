@@ -1,5 +1,7 @@
 package com.toadsdewin.mintic.todayAbstractClass.MainPackage;
 import com.toadsdewin.mintic.todayAbstractClass.AbstractMarket.Products;
+import com.toadsdewin.mintic.todayAbstractClass.models.Meat;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -18,9 +20,28 @@ public class Main
 
             if(code>0)
             {
-                System.out.println("Type of products: \n1.Meat \n2.Clothes");
+                System.out.print("Type of products: \n1.Meat \n2.Clothes");
                 Integer typeProduct = object.nextInt();
                 object.nextLine();
+
+                System.out.print("Name of the product: ");
+                String nameProd = object.nextLine();
+
+                System.out.println("Prices: ");
+                Integer quantityPrices = object.nextInt();
+
+                switch(typeProduct)
+                {
+
+                    case 1:
+                        object.nextLine();
+                        System.out.println("Meat cut: ");
+                        String cutMeat = object.nextLine();
+
+                        Meat objectMeat = new Meat(cutMeat,code,nameProd);
+                        break;
+
+                }
             }
             else
             {
