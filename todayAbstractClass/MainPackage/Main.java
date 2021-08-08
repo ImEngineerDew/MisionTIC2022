@@ -10,7 +10,7 @@ public class Main
     private static Scanner object = new Scanner(System.in);
     private static ArrayList<Products> productList = new ArrayList<>();
 
-    public void readData()
+    public static void readData()
     {
         boolean flag = true;
         do
@@ -27,7 +27,7 @@ public class Main
                 System.out.print("Name of the product: ");
                 String nameProd = object.nextLine();
 
-                System.out.println("Prices: ");
+                System.out.print("Please write the quantity of prices to list: ");
                 Integer quantityPrices = object.nextInt();
 
                 switch(typeProduct)
@@ -39,6 +39,13 @@ public class Main
                         String cutMeat = object.nextLine();
 
                         Meat objectMeat = new Meat(cutMeat,code,nameProd);
+
+                        for(int i=0; i<quantityPrices;i++)
+                        {
+                            System.out.print("Price: ");
+                            objectMeat.addPrice(object.nextDouble());
+                        }
+                        productList.add(objectMeat);
                         break;
 
                 }
@@ -50,13 +57,16 @@ public class Main
             }
         }while(flag);
     }
-    public void toPrint()
+    public static void toPrint()
     {
-
+        productList.forEach(myProduct -> {
+            System.out.println(myProduct.toString());
+        });
     }
     public static void main(String[] args)
     {
-
+        readData();
+        toPrint();
     }
 
 
