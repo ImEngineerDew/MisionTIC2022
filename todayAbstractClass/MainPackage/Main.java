@@ -1,6 +1,7 @@
 package com.toadsdewin.mintic.todayAbstractClass.MainPackage;
 import com.toadsdewin.mintic.todayAbstractClass.AbstractMarket.Products;
 import com.toadsdewin.mintic.todayAbstractClass.models.Meat;
+import com.toadsdewin.mintic.todayAbstractClass.models.Clothes;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -48,6 +49,16 @@ public class Main
                         productList.add(objectMeat);
                         break;
 
+                    case 2:
+                        Clothes objectClothes = new Clothes(code,nameProd);
+
+                        for(int i=0; i<quantityPrices;i++)
+                        {
+                            System.out.print("Price: ");
+                            objectClothes.addPrice(object.nextDouble());
+                        }
+                        productList.add(objectClothes);
+                        break;
                 }
             }
             else

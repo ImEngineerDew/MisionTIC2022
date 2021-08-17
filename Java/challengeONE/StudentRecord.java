@@ -1,6 +1,7 @@
 package com.toadsdewin.mintic.Java.challengeONE;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class StudentRecord
 {
@@ -14,7 +15,7 @@ public class StudentRecord
         System.out.println("Size of the array: " + amount);
         for (i = 0; i < amount; i++)
         {
-            System.out.print("Record # " + i + ": ");
+            System.out.print("Score record # " + i + ": ");     //This is the score record between 0,0 and 5,0
             array[i] = object.nextDouble();
         }
         return amount;
@@ -22,10 +23,12 @@ public class StudentRecord
 
     public static void main(String args[])
     {
+        HashMap <Double,String> littleMap = new HashMap();
         double sumatory = 0;
-        Boolean flag;
-
         sumatory = (double) sum;
+        Boolean flag;
+        String message = " ";
+
 
         do {
             try {
@@ -35,8 +38,7 @@ public class StudentRecord
 
                     do
                     {
-                        if(DNI>0)
-                        {
+                        if(DNI>0) {
                             try {
                                 flag = false;
                                 System.out.print("Please write the amount of data: ");
@@ -44,36 +46,49 @@ public class StudentRecord
 
                                 quantityOfData(amnt);
 
-                                for (int j=0; j<amnt;j++)
-                                {
-                                    sumatory+=array[j];
-                                    average = sumatory/amnt;
+                                for (int j = 0; j < amnt; j++) {
+                                    sumatory += array[j];
+                                    average = sumatory / amnt;
                                 }
-                                System.out.println("Sum: "+sumatory);
-                                if(average>3.0)
+                                System.out.println("Sum: " + sumatory);
+                                if (average > 3.0)
                                 {
-                                    System.out.print("Average: "+average);
-                                    System.out.println(", Congratulations, you've been passed the course!");
+                                    littleMap.put(average,"Congratulations, you've been passed the course!");
+
+                                    littleMap.get(average);
+                                    littleMap.get(message);
+
+                                    System.out.println("Information: " + littleMap);
+                                    break;
+                                } else if (average > 2.0 && average < 2.99) {
+                                    littleMap.put(average,"you will have a chance of pass the course!");
+
+                                    littleMap.get(average);
+                                    littleMap.get(message);
+
+                                    System.out.println();
+                                    System.out.println("Information: " + littleMap);
+                                    break;
+                                } else {
+                                    littleMap.put(DNI, average);
+
+                                    littleMap.get(DNI);
+                                    littleMap.get(average);
+
+                                    //System.out.print("Average: "+average);
+                                    System.out.println("You're been lost the course!");
+                                    System.out.println("Information: " + littleMap);
                                     break;
                                 }
-                                else if(average>2.0 && average<2.99)
-                                {
-                                    System.out.print("Average: "+average);
-                                    System.out.println(", you will have a chance of pass the course!");
-                                    break;
-                                }
-                                else
-                                {
-                                    System.out.print("Average: "+average);
-                                    System.out.println(", You're been lost the course!");
-                                    break;
-                                }
-                            }catch(NullPointerException nullError)
-                            {
-                                System.out.print("Try again!");
-                                object.next();
+                            } catch (NullPointerException nullError) {
+                                System.out.println("That array doesn't allow empty fields!");
                                 flag = true;
+                            }catch(NegativeArraySizeException negativeException)
+                            {
+                                System.out.println("Only positive numbers");
+                                flag= true;
                             }
+
                         }
                         else
                         {
